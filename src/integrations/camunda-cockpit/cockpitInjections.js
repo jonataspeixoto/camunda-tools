@@ -11,7 +11,7 @@ export function createNotification(notification, type){
       (!notification.message || notification?.message.length < 1) && 
       (!notification.status || notification?.status.length < 1)
     ) || !type){
-    return null;
+    throw new Error("Message and Status are empty");
   }
   
   let notificationElement = document.createElement('div');
@@ -25,15 +25,22 @@ export function createNotification(notification, type){
   statusElement.className = 'status';
   statusElement.textContent = notification?.status;
 
-  var messageElement = document.createElement('span');
-  messageElement.className = 'message';
-  messageElement.textContent = notification?.message;
+  const messageElement = [];
+  
+  notification.message.split(';').forEach(element => {
+    let temp = document.createElement('span');
+    temp.className = 'message';
+    temp.textContent = element.trim();
+    messageElement.push(temp);
+  });
 
   notificationElement.appendChild(closeButton);
 
   notificationElement.appendChild(statusElement);
 
-  notificationElement.appendChild(messageElement);
+  messageElement.forEach(item => {
+    notificationElement.appendChild(item);
+  })
 
   return notificationElement.outerHTML
 } 

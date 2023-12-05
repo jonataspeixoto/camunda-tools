@@ -1,52 +1,63 @@
 <!DOCTYPE html>
 <html lang="en" xml:lang="en">
     <head>
-        <meta lang="pt-br">
+        <meta lang="en-US">
         <meta charset="utf-8">
         <title>Camunda Tools</title>
         <link rel="stylesheet" href="./camunda-tools.css">
     </head>
     <body>
         <header class="container">
-            <img class="logo" src="images/icon-256.png" alt="Logo camunda tools"></img>
+            <img class="logo" id="logoCamunda" src="images/icon-256.png" alt="Logo camunda tools" draggable="false"></img>
             <h4 style="text-align: center;">Camunda Tools</h4>
         </header>
         <div id="main" class="container">
-            <div>
+            <div style="display: flex; flex-direction: column;">
                 <label>Move Process</label>
-                <button id="mainToMoveButton">
-                    <img src="images/move.png" alt="Image move button"></img>
-                </button>
-            </div>
-            <div>
-                <label>Delete Process</label>
-                <button id="mainDeleteButton">
-                    <img src="images/move.png" alt="Image delete button"></img>
-                </button>
+                <div id="mainToMoveButton">
+                    <div class="move-button" alt="Image move button" draggable="false"></div>
+                </div>
             </div>
         </div>
         <div class="container hidden" style="padding: 20px; flex-direction: column; width: 400px;" id="move">
             <div class="item">
-                <label>Process Instance:</label>
-                <input id="processInstanceMoveInput"></input>
+                <div class="instanceGroup">
+                    <label for="processInstanceMoveInput">Process Instance:</label>
+                    <input id="processInstanceMoveInput" style="width: 200px;"></input>
+                </div>
+                <div class="definitionGroup hidden">
+                    <label for="processDefinitionMoveInput">Process Definition:</label>
+                    <input id="processDefinitionMoveInput" style="width: 200px;"></input>
+                </div>
             </div>
             <div class="item">
                 <div>
-                    <label style="flex-basis: 3em;">From:</label>
+                    <label for="firstActivityMoveInput" style="flex-basis: 3em;">From:</label>
                     <input id="firstActivityMoveInput" style="width: 150px;"></input>
                     <button id="selectFirstActivityButton">Select Activity</button>
                 </div>
             </div>
             <div class="item">
                 <div>
-                    <label style="flex-basis: 3em;">To:</label>
-                    <input id="secondActivityMoveInput"style="width: 150px;"></input>
+                    <label for="secondActivityMoveInput" style="flex-basis: 3em;">To:</label>
+                    <input id="secondActivityMoveInput" style="width: 150px;"></input>
                     <button id="selectSecondActivityButton">Select Activity</button>
                 </div>
             </div>
             <div class="item">
+                <div style="justify-content: space-around;">
+                    <label for="processGroupCheckbox">Select all process in activity:</label>
+                    <input type="checkbox" id="processGroupCheckbox"></input>
+                </div>
+            </div>
+            <div class="item">
                 <div style="justify-content: space-around">
-                    <button id="executeMove">Execute</button>
+                    <div class="instanceGroup">
+                        <button id="executeMove">Execute</button>
+                    </div>
+                    <div class="definitionGroup hidden">
+                        <button id="executeMoveAllProcess">Execute all process</button>
+                    </div>
                     <button id="moveToMainButton">Back to menu</button>
                 </div>
             </div>

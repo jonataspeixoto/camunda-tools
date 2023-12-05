@@ -1,0 +1,6 @@
+{
+    "processDefinitionId": "CANCELLATION:24:6ea050ae-7e44-11ee-bdfe-76f967a0b767",
+    "activityIdIn": [
+        "ODA_REGISTER_SIM_CARD"
+    ]
+}

@@ -3,7 +3,7 @@
     "name": "Camunda Tools",
     "permissions": ["activeTab", "scripting", "storage"],
     "description": "Enable extended tools for camunda cockpit.",
-    "version": "1.0",
+    "version": "1.1",
     "icons": {
         "16": "./images/icon-16.png",
         "32": "./images/icon-32.png",
@@ -24,13 +24,14 @@
         "type": "module"
     },
     "content_scripts": [{
-        "matches": ["http://*/*", "https://*/*"],
+        "matches": ["http://*/*/camunda/app/cockpit", "https://*/*/camunda/app/cockpit"],
         "js": [
-            "./content.js",
+            "./src/script/util.js",
+            "./src/integrations/tab/pageActions.js",
             "./src/integrations/chrome/sessionApi.js",
-            "./src/integrations/camunda-api/camundaApi.js", 
-            "./src/integrations/tab/pageActions.js", 
-            "./src/script/util.js"
+            "./src/integrations/camunda-cockpit/cockpitInjections.js",
+            "./src/integrations/camunda-api/camundaApi.js",
+            "./content.js"
         ],
         "type": "module"
     }],
