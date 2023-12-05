@@ -1,0 +1,14 @@
+{
+    "skipCustomListeners": true,
+    "skipIoMappings": true,
+    "instructions": [
+        {
+            "type": "startBeforeActivity",
+            "activityId": "X2"
+        },
+        {
+            "type": "cancel",
+            "activityId": "X1"
+        }
+    ]
+}

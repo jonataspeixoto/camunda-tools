@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+    <head>
+        <meta lang="pt-br">
+        <meta charset="utf-8">
+        <title>Camunda Tools</title>
+        <link rel="stylesheet" href="./camunda-tools.css">
+    </head>
+    <body>
+        <header class="container">
+            <img class="logo" src="images/icon-256.png" alt="Logo camunda tools"></img>
+            <h4 style="text-align: center;">Camunda Tools</h4>
+        </header>
+        <div id="main" class="container">
+            <div>
+                <label>Move Process</label>
+                <button id="mainToMoveButton">
+                    <img src="images/move.png" alt="Image move button"></img>
+                </button>
+            </div>
+            <div>
+                <label>Delete Process</label>
+                <button id="mainDeleteButton">
+                    <img src="images/move.png" alt="Image delete button"></img>
+                </button>
+            </div>
+        </div>
+        <div class="container hidden" style="padding: 20px; flex-direction: column; width: 400px;" id="move">
+            <div class="item">
+                <label>Process Instance:</label>
+                <input id="processInstanceMoveInput"></input>
+            </div>
+            <div class="item">
+                <div>
+                    <label style="flex-basis: 3em;">From:</label>
+                    <input id="firstActivityMoveInput" style="width: 150px;"></input>
+                    <button id="selectFirstActivityButton">Select Activity</button>
+                </div>
+            </div>
+            <div class="item">
+                <div>
+                    <label style="flex-basis: 3em;">To:</label>
+                    <input id="secondActivityMoveInput"style="width: 150px;"></input>
+                    <button id="selectSecondActivityButton">Select Activity</button>
+                </div>
+            </div>
+            <div class="item">
+                <div style="justify-content: space-around">
+                    <button id="executeMove">Execute</button>
+                    <button id="moveToMainButton">Back to menu</button>
+                </div>
+            </div>
+        </div>
+        <script type="module" src="./content.js"></script>
+    </body>
+</html>

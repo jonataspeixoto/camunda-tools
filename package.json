@@ -1,0 +1,33 @@
+{
+  "name": "camunda-tools",
+  "version": "1.0.0",
+  "description": "Enable extended tools for camunda cockpit.",
+  "main": "content.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/jonataspeixoto/camunda-tools.git"
+  },
+  "keywords": [
+    "camunda",
+    "camunda-tools",
+    "move",
+    "process",
+    "instance"
+  ],
+  "author": "jonataspeixoto",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jonataspeixoto/camunda-tools/issues"
+  },
+  "homepage": "https://github.com/jonataspeixoto/camunda-tools#readme",
+  "devDependencies": {
+    "copy-webpack-plugin": "^11.0.0",
+    "jest": "^29.7.0",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-merge": "^5.10.0"
+  }
+}

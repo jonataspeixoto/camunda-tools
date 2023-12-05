@@ -1,0 +1,45 @@
+{
+    "manifest_version": 3,
+    "name": "Camunda Tools",
+    "permissions": ["activeTab", "scripting", "storage"],
+    "description": "Enable extended tools for camunda cockpit.",
+    "version": "1.0",
+    "icons": {
+        "16": "./images/icon-16.png",
+        "32": "./images/icon-32.png",
+        "48": "./images/icon-48.png",
+        "128": "./images/icon-128.png"
+    },
+    "action": {
+        "default_popup": "./camunda-tools.html",
+        "default_icon": {
+            "16": "./images/icon-16.png",
+            "32": "./images/icon-32.png",
+            "48": "./images/icon-48.png",
+            "128": "./images/icon-128.png"
+        }
+    },
+    "background": {
+        "service_worker": "./src/service_worker/background.js",
+        "type": "module"
+    },
+    "content_scripts": [{
+        "matches": ["http://*/*", "https://*/*"],
+        "js": [
+            "./content.js",
+            "./src/integrations/chrome/sessionApi.js",
+            "./src/integrations/camunda-api/camundaApi.js", 
+            "./src/integrations/tab/pageActions.js", 
+            "./src/script/util.js"
+        ],
+        "type": "module"
+    }],
+    "commands": {
+        "_execute_action": {
+            "suggested_key": {
+                "default": "Ctrl+Shift+L",
+                "mac": "Command+Shift+L"
+            }
+        }
+    }
+}
